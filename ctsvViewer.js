@@ -1299,7 +1299,7 @@ function extendCheckInputPath(
 	let permittionExtends = ["csv", "tsv"];
 	const checkOk = jsPath.checkExtend(
 		inputPath,
-		permittionExtends.join("\t")
+		permittionExtends.join("&")
 	);
 	if(checkOk) return;
 	alert(
