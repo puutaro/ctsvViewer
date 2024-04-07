@@ -1194,14 +1194,18 @@ function makeMotionList(
 	const startLimitNum = 0;
 	if(
 		preBackStartNum >= startLimitNum
-	) var backSelect = `${MotionType.back}\t`;	
+	) var backSelect = `${MotionType.back}`;
 	else var backSelect = "";
 	var repeatSelect = MotionType.repeat;
 	if(
 		preForwardStartNum <= endNum
-	) var forwardSelect = `\t${MotionType.forward}`;	
-	else var forwardSelect = `\t${MotionType.ZERO}`;
-	return `${backSelect}${repeatSelect}${forwardSelect}`;
+	) var forwardSelect = `${MotionType.forward}`;
+	else var forwardSelect = `${MotionType.ZERO}`;
+	return [
+		backSelect,
+		repeatSelect,
+		forwardSelect
+	].join("\n");
 };
 
 function execMotion(
@@ -1226,7 +1230,7 @@ function execMotion(
 			jsUrl.loadUrl(
 		    	jsUrl.makeJsUrl(FANNEL_SCRIPT_PATH)
 		    );
-			existZero();
+			exitZero();
 			break;
 		case MotionType.repeat:
 			jsEdit.updateByVariable(
@@ -1237,7 +1241,7 @@ function execMotion(
 			jsUrl.loadUrl(
 		    	jsUrl.makeJsUrl(FANNEL_SCRIPT_PATH)
 		    );
-			existZero();
+			exitZero();
 			break;
 		case MotionType.forward:
 			jsEdit.updateByVariable(
@@ -1253,7 +1257,7 @@ function execMotion(
 			jsUrl.loadUrl(
 		    	jsUrl.makeJsUrl(FANNEL_SCRIPT_PATH)
 		    );
-			existZero();
+			exitZero();
 			break;
 		case MotionType.ZERO:
 			jsEdit.updateByVariable(
@@ -1269,7 +1273,7 @@ function execMotion(
 		    jsUrl.loadUrl(
 		    	jsUrl.makeJsUrl(FANNEL_SCRIPT_PATH)
 		    );
-			existZero();
+			exitZero();
 			break;
 	};
 };
