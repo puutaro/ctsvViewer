@@ -314,10 +314,10 @@ function makeFilters(
 	);
 	const filteringColumns = jsDialog.multiListDialog(
         "Select filter column",
-        jsCsv.toHeaderRow(selectColmunTagName, 0, 0),
+        jsCsv.toHeaderRow(selectColmunTagName, 0, 0).replaceAll("\t", "\n"),
         Array.from(
         	filtersMap.keys()
-        ).join("\t"),
+        ).join("\n"),
     );
     if(!filteringColumns) {
     	exitZero();
@@ -393,8 +393,8 @@ function makeUpdateFilters(
     		);
     		return jsDialog.formDialog(
 				`Edit "${colName}" filter`,
-				`colName:RO=\toperator:CB=${updateOperatorList.join("?")}\tfilterGain:ELCB=${LIST_PATH}=${CURRENT_FILTER_GAIN_LIST_FILE_PATH}?${LIMIT_NUM}=30`,
-				`colName=${colName}\toperator=${colName}\tfilterGain=${filterGain}`,
+				`colName:RO=\noperator:CB=${updateOperatorList.join("?")}\nfilterGain:ELCB=${LIST_PATH}=${CURRENT_FILTER_GAIN_LIST_FILE_PATH}?${LIMIT_NUM}=30`,
+				`colName=${colName}\noperator=${colName}\nfilterGain=${filterGain}`,
 			).split("\n").map(
 		    	function(query){
 		    		let queryList = query.split("=");
