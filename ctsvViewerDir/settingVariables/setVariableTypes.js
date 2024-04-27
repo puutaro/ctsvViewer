@@ -77,7 +77,7 @@ inputCTsvPath:
 			${LIST_PATH}=${CURRENT_INUPT_CSV_LIST_FILE_PATH}
 			?${LIMIT_NUM}=10
 		|
-			initialPath=`${STORAGE}/Music`
+			initialPath=`${STORAGE}/Download`
 			?suffix=`${CSV_SUFFIX}&${TSV_SUFFIX}`
 		,
 viewType:
