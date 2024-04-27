@@ -79,6 +79,7 @@ inputCTsvPath:
 		|
 			initialPath=`${STORAGE}/Download`
 			?suffix=`${CSV_SUFFIX}&${TSV_SUFFIX}`
+			?macro=FROM_RECENT_DIR
 		,
 viewType:
 	LBL:CB=
